@@ -6,8 +6,8 @@ import {VarHistoricoComponent} from './components/var-historico/var-historico.co
 
 const routes: Routes = [
   { path: 'limites', component: LimitesComponent },
-  { path: 'limites2', component: VarHistoricoComponent },
-  { path: '**' , pathMatch: 'full' , redirectTo: 'limites'}
+  { path: 'var/historico', component: VarHistoricoComponent },
+  { path: '**' , pathMatch: 'full' , redirectTo: 'var/historico'}
 ];
 
 @NgModule({

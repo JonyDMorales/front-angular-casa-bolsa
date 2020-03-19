@@ -1,1 +1,43 @@
-<p>var-historico works!</p>
+<div class="container">
+  <h1 class="text-primary">Var Mesa de dinero</h1>
+  <br>
+  <br>
+
+
+  <table style="float: left; width: 200px; border: 1px solid #dee2e6; text-align: center;" class="table">
+    <tbody>
+    <tr>
+      <td>99%</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>97%</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>95%</td>
+      <td>12</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <label>&nbsp;&nbsp;&nbsp;Var historico porcentaje</label>
+  <br>
+  <select id="porcentajeSelect" class="form-control" style="width: 25%; display: inline-table; margin-left: 5px;" onchange="getProductoLimitesmd()" >
+    <option value="99&10">99%</option>
+    <option value="97&15">97%</option>
+    <option value="95&12">95%</option>
+  </select>
+
+  <br>
+
+  <div style="text-align: center;" id="tableFirst"></div>
+
+  <br>
+
+  <div style="text-align: center;" id="tableSecond"></div>
+
+
+
+</div>

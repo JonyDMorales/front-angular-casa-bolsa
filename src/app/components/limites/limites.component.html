@@ -1,1 +1,17 @@
-<p>limites works!</p>
+<div class="container">
+  <h1 class="text-primary">Limites y lineas</h1>
+  <select style="width: 25%; display: inline-table; margin-left: 5px;"
+          onchange="cambio()" class="form-control" id="selectTipo">
+    <option value="contraparte">Contraparte</option>
+    <option value="operador">Operador</option>
+
+  </select> <select style="width: 25%; display: inline-table; margin-left: 10px;" onchange="cambioDivisa()"
+                    class="form-control" id="selectDivisas">
+  <option value="MXN">MXN</option>
+  <option value="US">USD</option>
+</select>
+  <br><br>
+  <a class="btn btn-primary btn-xs" onclick="addRow()"
+     id="btnAgregar" style="color: white">Agregar</a>
+  <div id="conteTable"></div>
+</div>

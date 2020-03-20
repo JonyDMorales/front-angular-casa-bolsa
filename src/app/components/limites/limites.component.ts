@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
+import { DataTablesModule } from 'angular-datatables';
 import {BackendService} from '../../services/backend.service';
 import * as $ from 'jquery';
+import 'datatables.net'
+
+
 
 @Component({
   selector: 'app-limites',
@@ -9,18 +13,22 @@ import * as $ from 'jquery';
 })
 export class LimitesComponent implements OnInit {
 
+  //@ViewChild('datatable', { static: true }) t ;
+  dataTable: any;
+
   constructor(private backendService: BackendService) {
     this.funcionUno();
   }
 
   ngOnInit() {
+
   }
 
   public funcionUno() {
     this.backendService.limites(0).subscribe(da => {
       $('#conteTable').empty();
       const divisaValor = 1;
-      $('#conteTable').append('<table class="table table-striped" id="limites" >' +
+      $('#conteTable').append('<table #table class="table table-striped" id="limites" >' +
         '<thead>' +
         '<tr>' +
         '<th>contraparte</th>' +
@@ -66,6 +74,9 @@ export class LimitesComponent implements OnInit {
 
 
       }
+
+      const table: any = $('table');
+      this.dataTable = table.DataTable();
     });
   }
 

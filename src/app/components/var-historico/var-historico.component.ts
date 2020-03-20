@@ -20,7 +20,7 @@ export class VarHistoricoComponent implements OnInit {
     this.backendService.mesaDeDinero().subscribe((da: any) => {
       console.log(da);
       const selectPorcentajePre = $('#porcentajeSelect').val();
-      const selectPorcentajeSplit = selectPorcentajePre.split('&');
+      const selectPorcentajeSplit = selectPorcentajePre[0].split('&');
       const selectPorcentaje = selectPorcentajeSplit[0];
       const selectPorcentajeValor = selectPorcentajeSplit[1];
 

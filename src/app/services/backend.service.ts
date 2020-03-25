@@ -70,4 +70,18 @@ export class BackendService {
       }));
   }
 
+  public logaritmo(datos) {
+    const uri = this.url + 'logaritmo/log';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.token
+      })};
+
+    return this.http.post(uri, datos , httpOptions).pipe(
+      map(res => {
+        return res;
+      }));
+  }
+
 }

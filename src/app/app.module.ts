@@ -9,13 +9,15 @@ import { LimitesComponent } from './components/limites/limites.component';
 import { VarHistoricoComponent } from './components/var-historico/var-historico.component';
 import {SemaforosComponent} from './components/semaforos/semaforos.component';
 import {ChartsModule} from 'ng2-charts';
+import { LogaritmoComponent } from './components/logaritmo/logaritmo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LimitesComponent,
     VarHistoricoComponent,
-    SemaforosComponent
+    SemaforosComponent,
+    LogaritmoComponent
   ],
   imports: [
     BrowserModule,

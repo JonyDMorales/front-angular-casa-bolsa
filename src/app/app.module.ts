@@ -7,18 +7,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LimitesComponent } from './components/limites/limites.component';
 import { VarHistoricoComponent } from './components/var-historico/var-historico.component';
+import {SemaforosComponent} from './components/semaforos/semaforos.component';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     LimitesComponent,
-    VarHistoricoComponent
+    VarHistoricoComponent,
+    SemaforosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

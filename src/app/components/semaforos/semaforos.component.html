@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div id="spinner" class="sk-cube-grid">
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+  </div>
+  <h1 class="text-primary">Semaforos y Alertas</h1>
+  <br>
+  <a class="btn btn-primary btn-xs" (click)="showGrafica('graficaSemaforo', 'btnShowGraficaSemaforo')"
+     id="btnShowGraficaSemaforo" style="color: white; display: none;">Mostrar Grafica</a>
+  <br>
+  <br>
+  <div id="conteTableSemaforo"></div>
+  <br>
+  <br>
+  <div id="graficaSemaforo" style="display: none">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+  <br>
+  <br>
+  <a class="btn btn-primary btn-xs" (click)="showGrafica('graficaSemaforoUsuario', 'btnShowGraficaSemaforoUsuario')"
+     id="btnShowGraficaSemaforoUsuario" style="color: white; display: none;">Mostrar Grafica</a>
+  <br>
+  <br>
+  <div id="conteTableSemaforoUsuario"></div>
+  <br>
+  <br>
+  <div id="graficaSemaforoUsuario" style="display: none;">
+    <canvas baseChart
+            [datasets]="barChartData2"
+            [labels]="barChartLabels2"
+            [options]="barChartOptions2"
+            [plugins]="barChartPlugins2"
+            [legend]="barChartLegend2"
+            [chartType]="barChartType2">
+    </canvas>
+  </div>
+  <br>
+  <br>
+  <a class="btn btn-primary btn-xs"
+     (click)="showGrafica('graficaSemaforoOperaciones', 'btnShowGraficaSemaforoOperaciones')"
+     id="btnShowGraficaSemaforoOperaciones" style="color: white; display: none;">Mostrar Grafica</a>
+  <br>
+  <br>
+  <div id="conteTableSemaforoOperaciones"></div>
+  <br>
+  <br>
+  <div id="graficaSemaforoOperaciones" style="display: none;">
+    <canvas baseChart
+            [datasets]="barChartData3"
+            [labels]="barChartLabels3"
+            [options]="barChartOptions3"
+            [plugins]="barChartPlugins3"
+            [legend]="barChartLegend3"
+            [chartType]="barChartType3">
+    </canvas>
+  </div>
+</div>
+
+</body>
+</html>

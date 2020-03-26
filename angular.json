@@ -24,10 +24,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/alertifyjs/build/css/alertify.min.css",
+              "node_modules/alertifyjs/build/css/themes/bootstrap.min.css"
             ],
             "scripts": [
-              
+              "./node_modules/alertifyjs/build/alertify.min.js"
             ]
           },
           "configurations": {
@@ -127,10 +129,10 @@
 
       }
 
-      
+
     }},
 
 
   "defaultProject": "phi"
-  
+
 }

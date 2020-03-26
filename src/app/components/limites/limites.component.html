@@ -1,17 +1,120 @@
 <div class="container">
   <h1 class="text-primary">Limites y lineas</h1>
   <select style="width: 25%; display: inline-table; margin-left: 5px;"
-          onchange="cambio()" class="form-control" id="selectTipo">
+          (change)="cambio()" class="form-control" id="selectTipo">
     <option value="contraparte">Contraparte</option>
     <option value="operador">Operador</option>
 
-  </select> <select style="width: 25%; display: inline-table; margin-left: 10px;" onchange="cambioDivisa()"
+  </select> <select style="width: 25%; display: inline-table; margin-left: 10px;" (change)="cambioDivisa()"
                     class="form-control" id="selectDivisas">
   <option value="MXN">MXN</option>
   <option value="US">USD</option>
 </select>
   <br><br>
-  <a class="btn btn-primary btn-xs" onclick="addRow()"
+  <a class="btn btn-primary btn-xs" (click)='addRow()'
      id="btnAgregar" style="color: white">Agregar</a>
-  <div id="conteTable"></div>
+
+
+
+
+  <div id="add" style="width: 100%; height:250px; display:none"  >
+
+    <div >
+      <br>
+      <br>
+      <div class="form-group row">
+
+        <input class="form-control col-sm-3" type="text" placeholder="Contraparte" [(ngModel)]="contraparte" id="contraparte">
+        <div class="col-sm-1"> </div>
+        <input class="form-control col-sm-3" type="number" placeholder="Limite Global"  id="globalLimit" >
+        <div class="col-sm-1"> </div>
+        <input  class="form-control col-sm-3" type="number" placeholder="Límite Operaciones Directo" id="directOperationLimit" >
+        <div class="col-sm-1" > </div>
+      </div>
+      <div class="form-group row">
+
+        <input class="form-control col-sm-3" type="number" placeholder="Límite Operaciones en Reporto" id="reportoOperationLimit" >
+        <div class="col-sm-1"> </div>
+        <input class="form-control col-sm-3" type="number" placeholder="Límite por Operción" id="operationLimitMoneyMarket" >
+        <div class="col-sm-1"> </div>
+        <input  class="form-control col-sm-3" type="number" placeholder="Límite Mercado de Cambios" id="exchangeMarketLimit" >
+        <div class="col-sm-1"> </div>
+
+      </div>
+      <div class="form-group row">
+
+        <input class="form-control col-sm-3" type="number" placeholder="Límite por Operción Mercado de Cambios" id="limitOperationExchangeMarket" >
+        <div class=" col-sm-1"> </div>
+
+        <div col-sm-3>
+          <button class="btn btn-primary btn-xs " (click) = "insert()">Registrar</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-danger btn-xs " (click)="cancelar()">Cancelar</button>
+        </div>
+        <div class="col-sm-1"> </div>
+        <div class="col-sm-1"> </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+  <div id="conteTable">
+
+
+    <table class="table table-striped" id="limites" >
+      <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+
+
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr  *ngFor="let limites of limites; let i = index;" >
+        <td >
+          <span >{{limites.contraparte}}</span>
+        </td>
+        <td >
+          <span *ngIf="!limites.editable">{{limites.globalLimit}}</span>
+          <input type="number" class="form-control" [(ngModel)]="limites.globalLimit" *ngIf="limites.editable"/>
+        </td>
+        <td >
+          <span *ngIf="!limites.editable">{{limites.directOperationLimit}}</span>
+          <input type="number" class="form-control" [(ngModel)]="limites.directOperationLimit" *ngIf="limites.editable"/>
+        </td>
+        <td >
+          <span *ngIf="!limites.editable">{{limites.reportoOperationLimit}}</span>
+          <input type="number" class="form-control" [(ngModel)]="limites.reportoOperationLimit" *ngIf="limites.editable"/>
+        </td>
+        <td >
+          <span *ngIf="!limites.editable">{{limites.operationLimitMoneyMarket}} </span>
+          <input type="number" class="form-control" [(ngModel)]="limites.operationLimitMoneyMarket" *ngIf="limites.editable"/>
+        </td>
+        <td >
+          <span *ngIf="!limites.editable">{{limites.exchangeMarketLimit}}</span>
+          <input type="number" class="form-control" [(ngModel)]="limites.exchangeMarketLimit" *ngIf="limites.editable"/>
+        </td>
+        <td >
+          <span *ngIf="!limites.editable">{{limites.limitOperationExchangeMarket}} </span>
+          <input type="number" class="form-control" [(ngModel)]="limites.limitOperationExchangeMarket" *ngIf="limites.editable"/>
+        </td>
+        <td >
+          <a class="btn btn-danger btn-xs" style="color: white" (click)="deleteq(limites.contraparte)">Eliminar</a>
+        </td>
+        <td>
+          <a *ngIf="!limites.editable"  class="btn btn-primary btn-xs" style="color: white" (click)="editDomain(limites,i)">Modificar</a>
+          <a *ngIf="limites.editable" class="btn btn-primary btn-xs" style="color: white" (click)="guardarUpdate(limites,i)">Guardar</a>
+          <a *ngIf="limites.editable" class="btn btn-danger btn-xs " style="color: white" (click)="cancelUpdate(limites,i)">Cancelar</a>
+
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
 </div>

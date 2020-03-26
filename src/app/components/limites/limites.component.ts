@@ -174,7 +174,14 @@ export class LimitesComponent implements OnInit {
 
     $('#add').css('display', 'none');
     $('#btnAgregar').slideDown('slow');
-
+    $('#contraparte').val('');
+    $('#globalLimit').val('');
+    $('#directOperationLimit').val('');
+    $('#reportoOperationLimit').val('');
+    $('#operationLimitMoneyMarket').val('');
+    $('#exchangeMarketLimit').val('');
+    $('#limitOperationExchangeMarket').val('');
+    $('#add').css('display', 'none');
 
   }
 
@@ -227,17 +234,17 @@ export class LimitesComponent implements OnInit {
       alertify.set('notifier', 'position', 'bottom-left');
       alertify.error('Campo limite por operacion mercado es necesario');
 
-    } else if ($('#globalLimit').val() < validacionLimiteGlobal) {
+    } else if (parseInt($('#globalLimit').val().toString()) < validacionLimiteGlobal) {
 
       $('#globalLimit').focus();
       alertify.set('notifier', 'position', 'bottom-left');
       alertify.error('El campo limite global debe ser mayor');
-    } else if ($('#operationLimitMoneyMarket').val() > validacionOperacionMercadoMoney) {
+    } else if (parseInt($('#operationLimitMoneyMarket').val().toString()) > validacionOperacionMercadoMoney) {
 
       $('#operationLimitMoneyMarket').focus();
       alertify.set('notifier', 'position', 'bottom-left');
       alertify.error('El campo limite por operación debe ser menor');
-    } else if ($('#limitOperationExchangeMarket').val() > validacionOperacionMercadoCambios) {
+    } else if (parseInt($('#limitOperationExchangeMarket').val().toString()) > validacionOperacionMercadoCambios) {
 
       $('#limitOperationExchangeMarket').focus();
       alertify.set('notifier', 'position', 'bottom-left');
@@ -536,34 +543,26 @@ export class LimitesComponent implements OnInit {
 
   public editDomain(domain: any, index) {
     console.log(domain);
-
     this.globalLimit = domain.globalLimit;
     this.directOperationLimit = domain.directOperationLimit;
     this.reportoOperationLimit = domain.reportoOperationLimit;
     this.operationLimitMoneyMarket = domain.operationLimitMoneyMarket;
     this.exchangeMarketLimit = domain.exchangeMarketLimit;
     this.limitOperationExchangeMarket = domain.limitOperationExchangeMarket;
-
     domain.editable = !domain.editable;
   }
 
 
   public cancelUpdate(domain: any, index) {
 
-
     console.log(this.globalLimit);
-
-
     this.limites[index].globalLimit = this.globalLimit;
     this.limites[index].directOperationLimit = this.directOperationLimit;
     this.limites[index].reportoOperationLimit = this.globalLimit;
     this.limites[index].operationLimitMoneyMarket = this.reportoOperationLimit;
     this.limites[index].exchangeMarketLimit = this.exchangeMarketLimit;
     this.limites[index].limitOperationExchangeMarket = this.limitOperationExchangeMarket;
-
     domain.editable = !domain.editable;
-
-
   }
 
   public guardarUpdate(domain: any, index) {
@@ -577,16 +576,16 @@ export class LimitesComponent implements OnInit {
     //console.log(validacionOperacionMercadoCambios)
 
 
-    if (domain.globalLimit < validacionLimiteGlobal) {
+    if (parseInt(domain.globalLimit) < validacionLimiteGlobal) {
       alertify.set('notifier', 'position', 'bottom-left');
       alertify.error('El campo limite global debe ser mayor');
 
 
-    } else if (domain.operationLimitMoneyMarket > validacionOperacionMercadoMoney) {
+    } else if (parseInt(domain.operationLimitMoneyMarket) > validacionOperacionMercadoMoney) {
 
       alertify.set('notifier', 'position', 'bottom-left');
       alertify.error('El campo limite por operación debe ser menor');
-    } else if (domain.limitOperationExchangeMarket > validacionOperacionMercadoCambios) {
+    } else if (parseInt(domain.limitOperationExchangeMarket) > validacionOperacionMercadoCambios) {
 
       alertify.set('notifier', 'position', 'bottom-left');
       alertify.error('El campo limite por operación mercado de cambios debe ser menor');
